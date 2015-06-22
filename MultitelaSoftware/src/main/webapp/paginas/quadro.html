@@ -1,1 +1,43 @@
-<canvas id="canvas" style="width: 800px; height: 500px; background-color: #eeeeee;"></canvas>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <button  type="button" class="btn btn-default" data-toggle="modal" data-target="#usuarios_modal">Usuarios</button>
+        </div>
+    </div>
+    <div class="modal fade" id="usuarios_modal">
+
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Usuarios lopados</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <textarea id="conversa" class="form-control"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <select id="usuario_logados" class="form-control">
+                                <option id="todos">Todos</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-4">
+                            <input id="mensagem" type="text" placeholder="Informe uma mensagem" class="form-control"/>
+                        </div>
+                        <div class="col-lg-3">
+                            <button type="button" class="btn btn-primary form-control" id="btnconversa">Enviar</button>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    <canvas id="canvas"></canvas>
+
+</div>

@@ -59,3 +59,6 @@ $(document).ready(function () {
     iniciarLogin();
 });
 
+function panelUsuarios() {
+    $("usuarios_modal").modal("show");
+}
