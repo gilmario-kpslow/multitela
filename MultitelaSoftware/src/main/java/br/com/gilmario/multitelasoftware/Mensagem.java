@@ -2,6 +2,7 @@ package br.com.gilmario.multitelasoftware;
 
 import java.io.StringReader;
 import javax.json.Json;
+import javax.json.JsonArrayBuilder;
 import javax.json.JsonObject;
 
 /**
@@ -48,7 +49,7 @@ public class Mensagem {
         this.mensagem = mensagem;
     }
 
-    public String jsonToObject() {
+    public String toJson() {
         return Json.createObjectBuilder().add("acao", this.getAcao().toString()).add("parametro", this.getParametro()).add("mensagem", this.getMensagem()).build().toString();
     }
 
@@ -59,7 +60,7 @@ public class Mensagem {
 
     public enum Acao {
 
-        Conversassao(new Conversasao());
+        Conversassao(new Conversasao()), Execucao(null), Marcar(new Marcar());
 
         private final ProcessaMensagem processaMensagem;
 

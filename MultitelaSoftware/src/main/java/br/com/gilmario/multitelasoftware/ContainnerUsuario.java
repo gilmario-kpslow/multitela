@@ -2,14 +2,14 @@ package br.com.gilmario.multitelasoftware;
 
 import java.util.HashMap;
 import java.util.Map;
-import javax.inject.Singleton;
+import javax.enterprise.context.ApplicationScoped;
 import javax.websocket.Session;
 
 /**
  *
  * @author gilmario
  */
-@Singleton
+@ApplicationScoped
 public class ContainnerUsuario {
 
     private final Map<String, Usuario> usuarios = new HashMap<>();
@@ -35,6 +35,16 @@ public class ContainnerUsuario {
             }
         }
         return null;
+    }
+
+    public String[] getListaNomesUsuario() {
+        String[] usuariosL = new String[usuarios.size()];
+        int i = 0;
+        for (Map.Entry<String, Usuario> entry : usuarios.entrySet()) {
+            usuariosL[i] = entry.getKey();
+            i++;
+        }
+        return usuariosL;
     }
 
     public void removeUsuario(Session session) {

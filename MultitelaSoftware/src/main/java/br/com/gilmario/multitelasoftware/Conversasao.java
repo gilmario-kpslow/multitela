@@ -2,6 +2,7 @@ package br.com.gilmario.multitelasoftware;
 
 import java.util.Map;
 import javax.inject.Inject;
+import javax.json.JsonObject;
 import javax.websocket.Session;
 
 /**
@@ -17,9 +18,10 @@ public class Conversasao implements ProcessaMensagem {
     }
 
     @Override
-    public void processarMensagem(Mensagem mensagem) {
+    public void processarMensagem(JsonObject o, Map<String, Usuario> usuarios) {
+        Mensagem mensagem = new Mensagem(Mensagem.Acao.valueOf(o.getString("acao")), o.getString("parametro"), o.getString("mensagem"));
         if (mensagem.getParametro().equals("todos")) {
-            for (Map.Entry<String, Usuario> entry : containnerUsuario.getUsuarios().entrySet()) {
+            for (Map.Entry<String, Usuario> entry : usuarios.entrySet()) {
                 Usuario usuario = entry.getValue();
                 enviarMensagem(usuario.getSession(), mensagem);
             }
@@ -31,7 +33,7 @@ public class Conversasao implements ProcessaMensagem {
 
     private void enviarMensagem(Session session, Mensagem mensagem) {
         try {
-            session.getBasicRemote().sendText(mensagem.jsonToObject());
+            session.getBasicRemote().sendText(mensagem.toJson());
         } catch (Exception e) {
             e.printStackTrace();
         }
