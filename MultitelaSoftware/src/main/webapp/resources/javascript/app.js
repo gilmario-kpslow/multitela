@@ -61,7 +61,6 @@ function processaMensagem(mensagem) {
     }
     if (mensagem.parametro == "marcar") {
         var ponto = mensagem.mensagem;
-        ponto.teste();
         efeitoCirculo(ponto.x, ponto.y, ponto.cor);
     }
     if (mensagem.parametro == "move") {
@@ -125,10 +124,8 @@ function criarMensagem(acao, parametro, mensagem) {
     var mensagem = {
         acao: acao,
         parametro: parametro,
-        mensagem: mensagem,
-        teste: function () {
-            alert("hi");
-        }
+        mensagem: mensagem
+
     };
     return mensagem;
 }

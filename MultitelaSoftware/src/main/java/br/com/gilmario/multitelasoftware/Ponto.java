@@ -14,7 +14,6 @@ public class Ponto {
     private Integer x;
     private Integer y;
     private String cor;
-    private String teste;
 
     public Integer getX() {
         return x;
@@ -34,14 +33,6 @@ public class Ponto {
 
     public String getCor() {
         return cor;
-    }
-
-    public String getTeste() {
-        return teste;
-    }
-
-    public void setTeste(String teste) {
-        this.teste = teste;
     }
 
     public void setCor(String cor) {
