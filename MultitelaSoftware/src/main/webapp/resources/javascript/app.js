@@ -35,6 +35,12 @@ function abreQuadro() {
         criaQuadro();
     });
 }
+function abreXadrez() {
+    carregarPagina("xadrez", function (data) {
+        $("#conteudo").html(data);
+        initGame();
+    });
+}
 
 function criaObjeto(obj) {
     try {
@@ -131,10 +137,11 @@ function criarMensagem(acao, parametro, mensagem) {
 }
 
 $(document).ready(function () {
-    iniciarLogin();
-    $(document).on("mousemove", function (evt) {
-        moveQuadro(evt);
-    });
+//    iniciarLogin();
+//    $(document).on("mousemove", function (evt) {
+//        moveQuadro(evt);
+//    });
+    abreXadrez();
 
 });
 
