@@ -4,7 +4,7 @@ var usuario;
 function iniciaConexao() {
     var nome = $("#nome_usuario").val();
     var cor = new String($("#cor_usuario").val()).replace("#", '');
-    conexao = new WebSocket("ws://10.100.0.48:8081/multview/servidor/" + nome + "/" + cor);
+    conexao = new WebSocket("ws://localhost:8080/multview/servidor/" + nome + "/" + cor);
 //    mensagemInfo("Tentando se Conectar.", "Informação");
     conexao.onmessage = (function (evt) {
         processaMensagem(criaObjeto(evt.data));
@@ -137,11 +137,11 @@ function criarMensagem(acao, parametro, mensagem) {
 }
 
 $(document).ready(function () {
-//    iniciarLogin();
-//    $(document).on("mousemove", function (evt) {
-//        moveQuadro(evt);
-//    });
-    abreXadrez();
+    iniciarLogin();
+    $(document).on("mousemove", function (evt) {
+        moveQuadro(evt);
+    });
+    //abreXadrez();
 
 });
 
